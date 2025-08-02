@@ -3,7 +3,7 @@
 {
   "name": "chat-frontend",
   "context": "..",
-  "workspaceFolder": "/workspace/module-chat-frontend",
+  "workspaceFolder": "/workspace/chat-frontend",
   "image": "mcr.microsoft.com/devcontainers/node:20",
   "onCreateCommand": "npm install"
 }

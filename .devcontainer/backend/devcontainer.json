@@ -3,7 +3,7 @@
 {
   "name": "backend",
   "context": "..",
-  "workspaceFolder": "/workspace/module-backend",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "workspaceFolder": "/workspace/backend",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "onCreateCommand": "pip install -r requirements.txt"
 }
