@@ -29,7 +29,7 @@ const ChatAssistant = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/chat', {
+      const response = await fetch('https://8fc838f9d4ae.ngrok-free.app/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const ChatAssistant = () => {
 
   const clearChat = async () => {
     try {
-      await fetch(`http://localhost:8000/chat/${sessionId}`, {
+      await fetch(`https://8fc838f9d4ae.ngrok-free.app/chat/${sessionId}`, {
         method: 'DELETE',
       });
       setMessages([]);
