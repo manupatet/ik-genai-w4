@@ -7,5 +7,5 @@
     "context": "../../gdrive-mcp-server/"
   },
   "workspaceMount": "type=bind,source=./gdrive-mcp-server,target=/workspace/app",
-  "workspaceFolder": "/workspace/app/gdrive-mcp-server"
+  "workspaceFolder": "/workspace/app"
 }

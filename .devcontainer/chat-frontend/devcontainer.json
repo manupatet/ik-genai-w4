@@ -7,5 +7,5 @@
     "context": "../../chat-frontend/"
   },
   "workspaceMount": "type=bind,source=./chat-frontend,target=/workspace/app",
-  "workspaceFolder": "/workspace/app/chat-frontend"
+  "workspaceFolder": "/workspace/app"
 }

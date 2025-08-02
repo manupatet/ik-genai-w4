@@ -7,5 +7,5 @@
     "context": "../../backend/"
   },
   "workspaceMount": "type=bind,source=./backend,target=/workspace/app",
-  "workspaceFolder": "/workspace/app/backend"
+  "workspaceFolder": "/workspace/app"
 }
