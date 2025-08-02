@@ -6,6 +6,6 @@
     "dockerfile": "../../docker/Dockerfile",
     "context": "../../"
   },
-  "workspaceMount": "type=bind,source=/workspace/IK/ik-genai-w4,target=/workspace/app",
+  "workspaceMount": "type=bind,source=.,target=/workspace/app",
   "workspaceFolder": "/workspace/app"
 }
