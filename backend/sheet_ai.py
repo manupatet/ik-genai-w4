@@ -65,7 +65,7 @@ async def create_agent():
             # OPTIONAL: dry-run test query to check if things work
             agent_response = await agent.ainvoke({"messages": "What is the name of my Drive file about diet"})
 
-            console.log("TEST response: ",agent_response)
+            print("TEST response: ",agent_response)
             return agent
             # agent_response = await agent.ainvoke({"messages": "What is the name of my Drive file about diet"})
             # return agent_response
