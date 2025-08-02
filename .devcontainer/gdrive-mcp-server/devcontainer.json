@@ -3,6 +3,6 @@
 {
   "name": "gdrive-mcp-server",
   "workspaceFolder": "/workspace/gdrive-mcp-server",
-  "image": "mcr.microsoft.com/devcontainers/node:20",
+  "image": "node:22-slim",
   "onCreateCommand": "npm install"
 }
