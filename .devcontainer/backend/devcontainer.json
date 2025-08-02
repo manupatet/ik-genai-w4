@@ -2,7 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "backend",
-  "workspaceFolder": "/workspace/backend",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "onCreateCommand": "pip install -r requirements.txt"
+  "build": {
+    "dockerfile": "../../backend/docker/Dockerfile",
+    "context": "../../backend/"
+  }
 }

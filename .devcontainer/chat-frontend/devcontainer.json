@@ -2,7 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "chat-frontend",
-  "workspaceFolder": "/workspace/chat-frontend",
-  "image": "node:22-slim",
-  "onCreateCommand": "npm install"
+  "build": {
+    "dockerfile": "../../chat-frontend/docker/Dockerfile",
+    "context": "../../chat-frontend/"
+  }
 }

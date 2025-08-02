@@ -2,7 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "gdrive-mcp-server",
-  "workspaceFolder": "/workspace/gdrive-mcp-server",
-  "image": "node:22-slim",
-  "onCreateCommand": "npm install"
+  "build": {
+    "dockerfile": "../../gdrive-mcp-server/docker/Dockerfile",
+    "context": "../../gdrive-mcp-server/"
+  }
 }
