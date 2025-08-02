@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-  "name": "backend",
+  "name": "chat-frontend",
   "build": {
-    "dockerfile": "../docker/Dockerfile",
-    "context": ".."
+    "dockerfile": "../../chat-frontend/docker/Dockerfile",
+    "context": "../../chat-frontend/"
   }
 }

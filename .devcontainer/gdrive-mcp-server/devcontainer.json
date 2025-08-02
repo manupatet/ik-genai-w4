@@ -3,7 +3,7 @@
 {
   "name": "gdrive-mcp-server",
   "build": {
-    "dockerfile": "../docker/Dockerfile",
-    "context": ".."
+    "dockerfile": "../../gdrive-mcp-server/docker/Dockerfile",
+    "context": "../../gdrive-mcp-server/"
   }
 }

@@ -1,5 +1,0 @@
-{
-  "name": "Backend Module",
-  "workspace_folder": "backend",
-  "devcontainer_path": "backend/.devcontainer/devcontainer.json"
-}

@@ -1,5 +1,0 @@
-{
-  "name": "Chat Frontend Module",
-  "workspace_folder": "chat-frontend",
-  "devcontainer_path": "backend/.devcontainer/devcontainer.json"
-}

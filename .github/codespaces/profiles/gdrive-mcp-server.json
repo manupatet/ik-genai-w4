@@ -1,5 +1,0 @@
-{
-  "name": "Google MCP Server Module",
-  "workspace_folder": "gdrive-mcp-server",
-  "devcontainer_path": "gdrive-mcp-server/.devcontainer/devcontainer.json"
-}
