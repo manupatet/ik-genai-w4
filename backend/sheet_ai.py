@@ -9,6 +9,7 @@ from mcp.client.stdio import stdio_client
 from langchain_mcp_adapters.tools import load_mcp_tools
 # Helper to build a ReAct-style agent from LangGraph
 from langgraph.prebuilt import create_react_agent
+
 # LLM interface from LangChain
 # from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -30,7 +31,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 # Initialize LLM (you'll need to set OPENAI_API_KEY environment variable)
 #llm = ChatOpenAI(model="gpt-4o")
 llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash-lite-preview-06-17",
+        model="gemini-2.5-flash-lite",
         google_api_key=GEMINI_API_KEY,
         temperature=0.8
     )
