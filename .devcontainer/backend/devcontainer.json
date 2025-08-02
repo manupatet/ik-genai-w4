@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "backend",
-  "context": "../backend",
+  "workspaceFolder": "/workspace/chat-frontend",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "onCreateCommand": "pip install -r requirements.txt"
 }
