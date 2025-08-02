@@ -2,8 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "gdrive-mcp-server",
-  "context": "..",
-  "workspaceFolder": "/workspace/gdrive-mcp-server",
+  "context": "../../gdrive-mcp-server",
   "image": "mcr.microsoft.com/devcontainers/node:20",
   "onCreateCommand": "npm install"
 }
