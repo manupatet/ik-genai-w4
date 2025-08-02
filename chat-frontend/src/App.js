@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Trash2, Clock } from 'lucide-react';
 
+const ngrokURL="https://8fc838f9d4ae.ngrok-free.app"
+
 const ChatAssistant = () => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
@@ -29,7 +31,7 @@ const ChatAssistant = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://8fc838f9d4ae.ngrok-free.app/chat', {
+      const response = await fetch(`${ngrokURL}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +60,7 @@ const ChatAssistant = () => {
       console.error('Error sending message:', error);
       const errorMessage = {
         id: Date.now() + 1,
-        text: 'Sorry, I encountered an error. Please make sure the backend server is running on http://localhost:8000',
+        text: `Sorry, I encountered an error. Please make sure the backend server is running on ${ngrokURL}`,
         sender: 'bot',
         timestamp: new Date().toLocaleTimeString(),
         isError: true
@@ -71,7 +73,7 @@ const ChatAssistant = () => {
 
   const clearChat = async () => {
     try {
-      await fetch(`https://8fc838f9d4ae.ngrok-free.app/chat/${sessionId}`, {
+      await fetch(`${ngrokURL}/chat/${sessionId}`, {
         method: 'DELETE',
       });
       setMessages([]);
