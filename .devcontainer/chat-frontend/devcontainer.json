@@ -2,8 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
   "name": "chat-frontend",
-  "build": {
-    "dockerfile": "../../chat-frontend/docker/Dockerfile",
-    "context": "../../chat-frontend/"
-  }
+  "context": "..",
+  "workspaceFolder": "/workspace/module-chat-frontend",
+  "image": "mcr.microsoft.com/devcontainers/node:20",
+  "onCreateCommand": "npm install"
 }
