@@ -249,6 +249,7 @@ async function loadCredentialsAndRunServer() {
   google.options({ auth });
 
   const transport = new StdioServerTransport();
+  console.log("Starting Google Drive MCP server")
   await server.connect(transport);
 }
 
