@@ -1,4 +1,3 @@
-# main.py
 # FastAPI framework for building the backend API
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware # Enables cross-origin requests (for frontend-backend communication)
@@ -40,7 +39,7 @@ llm = ChatGoogleGenerativeAI(
 # This tells the agent how to start the GDrive MCP server (Node.js), with necessary credential paths
 server_params = StdioServerParameters(
     command="node",
-    args=["/home/ubuntu/gdrive-mcp-server/dist/index.js"],
+    args=["../gdrive-mcp-server/dist/index.js"],
     env={
         "GOOGLE_APPLICATION_CREDENTIALS": os.environ["GOOGLE_APPLICATION_CREDENTIALS"],
         "MCP_GDRIVE_CREDENTIALS": os.environ["MCP_GDRIVE_CREDENTIALS"]
@@ -101,7 +100,6 @@ class ChatResponse(BaseModel):
 
 
 # === 8. Health check route ===
-
 @app.get("/")
 async def root():
     return {"message": "Chat Assistant API is running"}
@@ -134,6 +132,7 @@ async def chat(request: ChatRequest):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error processing request: {str(e)}")
+
 # === 10. Clear session (Not used currently — placeholder for future stateful memory) ===
 @app.delete("/chat/{session_id}")
 async def clear_session(session_id: str):
