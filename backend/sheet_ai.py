@@ -11,7 +11,8 @@ from langchain_mcp_adapters.tools import load_mcp_tools
 # Helper to build a ReAct-style agent from LangGraph
 from langgraph.prebuilt import create_react_agent
 # LLM interface from LangChain
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 # Python utilities
 import asyncio
 from contextlib import asynccontextmanager
@@ -21,9 +22,19 @@ import os
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
+
+# --- Configuration & Setup ---
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 # Initialize LLM (you'll need to set OPENAI_API_KEY environment variable)
-llm = ChatOpenAI(model="gpt-4o")
+#llm = ChatOpenAI(model="gpt-4o")
+llm = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash-lite-preview-06-17",
+        google_api_key=GEMINI_API_KEY,
+        temperature=0.8
+    )
 
 # === 2. Configure MCP server parameters ===
 # This tells the agent how to start the GDrive MCP server (Node.js), with necessary credential paths

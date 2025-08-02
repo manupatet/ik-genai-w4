@@ -33,6 +33,7 @@ dependencies = [
     "jsonref==1.1.0",
     "jsonschema==4.24.0",
     "jsonschema-specifications==2025.4.1",
+    "langchain-google-genai>=2.1.8",
     "langchain-mcp-adapters>=0.1.9",
     "langchain-openai>=0.3.28",
     "langgraph>=0.6.2",
