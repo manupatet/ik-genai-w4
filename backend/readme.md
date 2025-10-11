@@ -89,10 +89,31 @@ Navigate to this URL http://ec2-54-81-28-421.compute-1.amazonaws.com:8080/docs
 
 It should open and show swagger API interface, where you can test the APIs for their correct behaviour.
 
-The backend runs the MCP server as a local internal process when it starts. Therefore, we need to copy these credentials to backend server also.
+After this we need to deploy `ngrok` on this EC2
 
+## NGROK setup on EC2
+
+Set up Ngrok:
 ```
-mkdir ../backend/credentials
-cp -r credentials/ ../backend/
+curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
+  | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
+  && echo "deb https://ngrok-agent.s3.amazonaws.com bookworm main" \
+  | sudo tee /etc/apt/sources.list.d/ngrok.list \
+  && sudo apt update \
+  && sudo apt install ngrok
+
+ngrok config add-authtoken <your-key>
+
+ngrok http http://localhost:8080
 ```
 
+This last command starts ngrok server, which connects to ngrok cloud and makes this accessible to Vercel. 
+
+Backend deployment is complete. Continue with Vercel deployment.
+
+## Common Fixes
+- Chatbot responds with "Please try again later".
+ The most common issue is that of token expiration, refresh the token by running `node dist/index.js`, restart the backend server, and try again.
+
+- The swagger-api Webpage does not open.
+  Ensure that you have opened 8080 in your inbound ports on AWS EC2 console.
