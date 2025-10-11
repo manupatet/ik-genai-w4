@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Trash2, Clock } from 'lucide-react';
 
-const ngrokURL="https://dd8994d32a17.ngrok-free.app"
+//const ngrokURL="https://dd8994d32a17.ngrok-free.app"
+const ngrokURL="http://ec2-54-81-28-21.compute-1.amazonaws.com:8080"
 
 const ChatAssistant = () => {
   const [messages, setMessages] = useState([]);
