@@ -1,4 +1,5 @@
-# Procedure
+# Preperatory Procedure to bring up an instance from scratch
+
 - Create a new EC2 instance (debian t3.small).
 - Create new rule and add port 8080 to incoming security group.
 - Download the .pem file from security tab.
@@ -20,19 +21,24 @@ git clone https://github.com/manupatet/ik-genai-w4.git
 cd ik-genai-w4
 ```
 
-Build the MCP server:
+## Here starts the procedure for Codespaces (does not need preperatory steps dure to Dockerfile config)
+
+Run these commands to setup the box for the build.
 
 ```
 cd gdrive-mcp-server
 npm install && npm run build
 mkdir .credentials
 export GOOGLE_APPLICATION_CREDENTIALS=.credentials/gcp_oauth_keys.json
-export MCP_APPLICATION_CREDENTIALS=.credentials/.gdrive-server-credentials.json
+export MCP_GDRIVE_CREDENTIALS=.credentials/.gdrive-server-credentials.json
 ```
 
-Drag and drop the `gcp_oauth_keys.json` file (that we obtained from GCP), into the newly created `credentials` folder.
+Copy (Drag and drop) the `gcp_oauth_keys.json` file (that we obtained from GCP, rename if necessary), into the newly created `.credentials` folder.
 
-Run this command to obtain access token from Google: `node dist/index.js auth`
+Run this command to obtain access token from Google: 
+```
+node dist/index.js auth
+```
 
 This will open a browser for you and ask you to login with your Google credentials. If successful, it will create a file `gdrive-server-credentials.json` in `credentials` directory.
 
@@ -46,5 +52,3 @@ The backend runs the MCP server as a local internal process when it starts. Ther
 mkdir ../backend/credentials
 cp -r credentials/ ../backend/
 ```
-
-
