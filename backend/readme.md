@@ -25,8 +25,9 @@ Build the MCP server:
 ```
 cd gdrive-mcp-server
 npm install && npm run build
-mkdir credentials
+mkdir .credentials
 export GOOGLE_APPLICATION_CREDENTIALS=.credentials/gcp_oauth_keys.json
+export MCP_APPLICATION_CREDENTIALS=.credentials/.gdrive-server-credentials.json
 ```
 
 Drag and drop the `gcp_oauth_keys.json` file (that we obtained from GCP), into the newly created `credentials` folder.
@@ -34,13 +35,10 @@ Drag and drop the `gcp_oauth_keys.json` file (that we obtained from GCP), into t
 Run this command to obtain access token from Google: `node dist/index.js auth`
 
 This will open a browser for you and ask you to login with your Google credentials. If successful, it will create a file `gdrive-server-credentials.json` in `credentials` directory.
-Export these credentials, and run the MCP Server:
-```
-export MCP_GDRIVE_CREDENTIALS=credentials/.gdrive-server-credentials.json
-node dist/index.js
-```
 
-This should start the MCP server locally on your EC2 instance \[Should show this output: `Starting Google Drive MCP server`/]
+We're ready to run the server: `node dist/index.js`
+
+This should start the MCP server locally on the box \[With this output: `Starting Google Drive MCP server`/]
 
 The backend runs the MCP server as a local internal process when it starts. Therefore, we need to copy these credentials to backend server also.
 
