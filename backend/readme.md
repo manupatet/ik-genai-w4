@@ -15,6 +15,7 @@ ssh -i ~/Downloads/backend-pem.pem admin@ec2-3-80-417-313.compute-1.amazonaws.co
 - Open the terminal and run:
 ```
 sudo apt update && sudo apt install git npm
+curl -LsSf https://astral.sh/uv/install.sh | sh
 mkdir repo/
 cd repo
 git clone https://github.com/manupatet/ik-genai-w4.git
@@ -46,9 +47,52 @@ We're ready to run the server: `node dist/index.js`
 
 This should start the MCP server locally on the box \[With this output: `Starting Google Drive MCP server`/]
 
+Once that is verified, create a zip of the `gdrive-mcp-server`
+
+```
+tar -cf archive.tar ./
+```
+
+Copy (Drag and drop) the `backend.pem` file, that we downloaded for EC2 instance, and transfer it to the EC2 machine.
+```
+scp -i backend.pem archive.tar admin@ec2-54-81-28-442.compute-1.amazonaws.com:~/repo
+```
+
+## Running the backed server
+
+Over on the EC2 machine, we need to `untar` the archive.tar in the correct directory, so that the build files are correctly laid out.
+- Remove the `gdrive-mcp-server` folder from the downloaded github repo and unzip the file in its place:
+```
+rm -rf ~/repo/ik-genai-w4/gdrive-mcp-server/
+mkdir ~/repo/ik-genai-w4/gdrive-mcp-server/
+cd ~/repo/ik-genai-w4/gdrive-mcp-server/
+tar -xf archive.tar
+```
+
+Add the two environment variables:
+```
+export GEMINI_API_KEY=<your-gemini-api-key>
+export GOOGLE_APPLICATION_CREDENTIALS=.credentials/gcp_oauth_keys.json
+export MCP_GDRIVE_CREDENTIALS=.credentials/.gdrive-server-credentials.json
+```
+
+Prepare the backend server to run:
+
+```
+uv venv .venv
+source .venv/bin/activate
+uv pip install .
+uvicorn sheet_ai:app --host:0.0.0.0 --port 8080
+```
+
+Navigate to this URL http://ec2-54-81-28-421.compute-1.amazonaws.com:8080/docs
+
+It should open and show swagger API interface, where you can test the APIs for their correct behaviour.
+
 The backend runs the MCP server as a local internal process when it starts. Therefore, we need to copy these credentials to backend server also.
 
 ```
 mkdir ../backend/credentials
 cp -r credentials/ ../backend/
 ```
+
