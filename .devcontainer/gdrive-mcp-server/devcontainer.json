@@ -6,6 +6,6 @@
     "dockerfile": "../../gdrive-mcp-server/docker/Dockerfile",
     "context": "../../gdrive-mcp-server/"
   },
-  "workspaceMount": "type=bind,source=./gdrive-mcp-server,target=/workspace/app",
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder}/gdrive-mcp-server,target=/workspace/app",
   "workspaceFolder": "/workspace/app"
 }

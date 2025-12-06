@@ -6,6 +6,6 @@
     "dockerfile": "../../chat-frontend/docker/Dockerfile",
     "context": "../../chat-frontend/"
   },
-  "workspaceMount": "type=bind,source=./chat-frontend,target=/workspace/app",
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder}/chat-frontend,target=/workspace/app",
   "workspaceFolder": "/workspace/app"
 }

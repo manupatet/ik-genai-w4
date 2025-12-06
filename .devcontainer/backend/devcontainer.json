@@ -6,6 +6,6 @@
     "dockerfile": "../../backend/docker/Dockerfile",
     "context": "../../backend/"
   },
-  "workspaceMount": "type=bind,source=./backend,target=/workspace/app",
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder}/backend,target=/workspace/app",
   "workspaceFolder": "/workspace/app"
 }
