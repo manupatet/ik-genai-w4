@@ -6,7 +6,7 @@
 - Copy the 'Public DNS' from 'details' of the EC2 instance.
 - Run the following commands :
 ```
-chown 400 ~/Downloads/backend-pem.pem
+chmod 400 ~/Downloads/backend-pem.pem
 ssh -i ~/Downloads/backend-pem.pem admin@ec2-3-80-417-313.compute-1.amazonaws.com
 ```
 
