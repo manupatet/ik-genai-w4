@@ -7,7 +7,7 @@
 - Run the following commands :
 ```
 chmod 400 ~/Downloads/backend-pem.pem
-ssh -i ~/Downloads/backend-pem.pem admin@ec2-3-80-417-313.compute-1.amazonaws.com
+ssh -i ~/Downloads/backend-pem.pem admin@ec2-43-80-41-33.compute-1.amazonaws.com
 ```
 
 - Validate that shell connects to remote EC2 box (you can now diconnect and close the terminal)
@@ -30,8 +30,8 @@ Run these commands to setup the box for the build.
 cd gdrive-mcp-server
 npm install && npm run build
 mkdir .credentials
-export GOOGLE_APPLICATION_CREDENTIALS=~/repo/ik-genai-w4/gdrive-mcp-server/.credentials/gcp_oauth_keys.json
-export MCP_GDRIVE_CREDENTIALS=~/repo/ik-genai-w4/gdrive-mcp-server/.credentials/.gdrive-server-credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS=.credentials/gcp_oauth_keys.json
+export MCP_GDRIVE_CREDENTIALS=.credentials/.gdrive-server-credentials.json
 ```
 
 Copy (Drag and drop) the `gcp_oauth_keys.json` file (that we obtained from GCP, rename if necessary), into the newly created `.credentials` folder.
@@ -72,8 +72,8 @@ tar -xf archive.tar
 Add the two environment variables:
 ```
 export GEMINI_API_KEY=<your-gemini-api-key>
-export GOOGLE_APPLICATION_CREDENTIALS=.credentials/gcp_oauth_keys.json
-export MCP_GDRIVE_CREDENTIALS=.credentials/.gdrive-server-credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS=~/repo/ik-genai-w4/gdrive-mcp-server/.credentials/gcp_oauth_keys.json
+export MCP_GDRIVE_CREDENTIALS=~/repo/ik-genai-w4/gdrive-mcp-server/.credentials/.gdrive-server-credentials.json
 ```
 
 Prepare the backend server to run:
@@ -82,7 +82,7 @@ Prepare the backend server to run:
 uv venv .venv
 source .venv/bin/activate
 uv pip install .
-uvicorn sheet_ai:app --host:0.0.0.0 --port 8080
+uvicorn sheet_ai:app --host=0.0.0.0 --port=8080
 ```
 
 Navigate to this URL http://ec2-54-81-28-421.compute-1.amazonaws.com:8080/docs
@@ -104,7 +104,7 @@ curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 
 ngrok config add-authtoken <your-key>
 
-ngrok http http://localhost:8080
+ngrok http 8080
 ```
 
 This last command starts ngrok server, which connects to ngrok cloud and makes this accessible to Vercel. 
