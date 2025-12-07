@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Trash2, Clock } from 'lucide-react';
 
-const ngrokURL="https://e196837f579b.ngrok-free.app"
+const ngrokURL="https://29b6ce5086bd.ngrok-free.app"
 //const ngrokURL="http://ec2-54-81-28-21.compute-1.amazonaws.com:8080"
 
 const ChatAssistant = () => {
