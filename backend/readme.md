@@ -30,8 +30,8 @@ Run these commands to setup the box for the build.
 cd gdrive-mcp-server
 npm install && npm run build
 mkdir .credentials
-export GOOGLE_APPLICATION_CREDENTIALS=.credentials/gcp_oauth_keys.json
-export MCP_GDRIVE_CREDENTIALS=.credentials/.gdrive-server-credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS=~/repo/ik-genai-w4/gdrive-mcp-server/.credentials/gcp_oauth_keys.json
+export MCP_GDRIVE_CREDENTIALS=~/repo/ik-genai-w4/gdrive-mcp-server/.credentials/.gdrive-server-credentials.json
 ```
 
 Copy (Drag and drop) the `gcp_oauth_keys.json` file (that we obtained from GCP, rename if necessary), into the newly created `.credentials` folder.
